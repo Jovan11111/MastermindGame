@@ -104,7 +104,8 @@ async function letComputerPlay(){
         curRowRigth++;
 
         if(correctPlace == 4){
-            console.log("finished");
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            restartScreen();
             break;
         }
         possibleSolutions = filterSolutions(possibleSolutions, guess, correctPlace, wrongPlace);
@@ -167,3 +168,16 @@ function insertValue(value){
         }
 }
 
+function restartScreen(){
+    const modal = document.getElementById('restartModal');
+    modal.style.display = 'block';
+  }
+
+function closeModal() {
+    const modal = document.getElementById('restartModal');
+    modal.style.display = 'none';
+}
+
+function refresh(){
+    location.reload();
+}

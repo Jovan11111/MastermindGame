@@ -26,14 +26,12 @@ function insertValue(value){
     }   
 }
 
-function submit(){
+async function submit(){
     curRow++;
     rowFinished = false;
     document.getElementById("submitButton").disabled = true;
     document.getElementById("resetButton").disabled = true;
     const [correctPlace, wrongPlace] = evaluateGuess(solution, curValues);
-    console.log(wrongPlace);
-    console.log(correctPlace);
 
     let colorTable = document.getElementById("colorTable");
     let cells = colorTable.rows[curRowRigth].cells;
@@ -44,6 +42,14 @@ function submit(){
         cells[i].style.backgroundColor = "yellow";
     }
     curRowRigth++;
+    if(correctPlace  == 4) {
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        restartScreen();
+    }
+    if(curRow == 6){
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        restartScreen();
+    }
 }
 
 
@@ -92,4 +98,18 @@ function generateSolution() {
     const solution = Array.from({ length: 4 }, () => Math.floor(Math.random() * 6) + 1);
     console.log("Generated solution:", solution);
     return solution;
+}
+
+function restartScreen(){
+    const modal = document.getElementById('restartModal');
+    modal.style.display = 'block';
+  }
+
+function closeModal() {
+    const modal = document.getElementById('restartModal');
+    modal.style.display = 'none';
+}
+
+function refresh(){
+    location.reload();
 }
