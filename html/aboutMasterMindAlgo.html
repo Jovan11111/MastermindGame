@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Algo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
@@ -25,5 +25,77 @@
             </div>
         </div>
     </nav>
+    <div class="container-fluid">
+        <div class="row" style="color: white; margin-top: 32px;  ">
+            <div class="col-xl-3"></div>
+            <div class="col-xl-6" style="background-color: rgb(34, 34, 34); opacity: 0.5; font-size: 24px; padding: 12px; border-radius: 5px;">
+                <p style="margin: 12px;">
+                    <span style="color: orange;">Algorithm Overview: </span> <br>
+                        This algorithm is designed to solve the Mastermind game in fewer than 5 moves. It consists of three main functions.
+                        <br>
+                        &emsp; 1. <b>evaluateGuess</b> determines how close a guess is to the solution by counting correct placements and misplaced values.
+                        <br>
+                        &emsp; 2. <b>computerGuess</b> selects the most optimal next guess based on minimizing the average number of remaining possibilities.
+                        <br>
+                        &emsp; 3. <b>letComputerPlay</b> automates the guessing process, interacts with the game interface, and provides feedback on each guess
+                        <br>
+                        <br>
+                    <span style="color: orange;">evaluateGuess(solution, guess):</span> <br>
+                    The evaluateGuess function evaluates how accurate a guess is compared to the solution. It returns two counts:
+                        <br>
+                        correctPlace: The number of values in the guess that are correct and in the correct position.
+                        <br>
+                        wrongPlace: The number of values in the guess that are correct but in the wrong position.
+                        <br>
+                        <br>
+                    Here's how it works:
+                        <br>
+                        It first iterates through the solution and guess, incrementing correctPlace for each match.
+                        It then counts occurrences of each value in both the solution and guess using arrays solutionCount and guessCount.
+                        For each possible value (1 through 6), it adds the minimum count from both arrays to wrongPlace.
+                        It subtracts correctPlace from wrongPlace to avoid double-counting values that are both correct and correctly placed.
+                    <br>
+                    <br>
+                    <span style="color: orange;">computerGuess(possibleSolutions):</span><br>
+                    The computerGuess function selects the most strategic next guess from the list of possible solutions. It aims to minimize the average number of remaining possibilities by:
+                    <br>
+                    &emsp;- Iterating over each possible guess and evaluating it against all possible solutions.
+                    <br>
+                    &emsp;- Calculating the feedback for each solution and counting how many solutions would remain if that guess were made.
+                    <br>
+                    &emsp;- Determining the guess that, on average, leaves the fewest remaining possibilities, thus improving the chances of solving the game quickly.
+                    <br>
+                    <br>
+                    <span style="color: orange;">letComputerPlay():</span><br>
+                    The letComputerPlay function controls the entire guessing process:
+                    <br>
+                    &emsp;1. Initiates the guessing process and inserts the guess into the game interface.
+                    <br>
+                    &emsp;2. Evaluates the guess using evaluateGuess and colors the feedback cells accordingly.
+                    <br>
+                    &emsp;3. Continues the process until the correct guess is found or a maximum number of attempts is reached.
+                    <br>
+                    &emsp;4. If the guess is correct (all values in the correct place), it triggers a delay and restarts the game.
+                    <br>
+                    &emsp;5. Updates the list of possible solutions by filtering based on feedback.
+                    <br>
+                    &emsp;6. Generates the next guess using computerGuess.</p>
+                    <br>
+                
+                <p style="margin: 12px;">
+                    If you want to have a look at a source code, feel free to visit my <a href="https://github.com/Jovan11111" style="text-decoration: none; color: orange;">Github</a>
+                </p>    
+                <p style="margin: 12px;">
+                    If you want to read more about this app, <a href="about.html" style="text-decoration: none; color: orange;">click here</a>
+                </p>
+                <p style="margin: 12px;">
+                    If you want to read more about Mastermind game rules, <a href="aboutMasterMind.html" style="text-decoration: none; color: orange;">click here</a>                </p>
+                <p style="margin: 12px;">
+                    If you want to learn more about me, click here
+                </p>
+            </div>
+            <div class="col-xl-3"></div>
+        </div>
+    </div>
 </body>
 </html>
