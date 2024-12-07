@@ -1,7 +1,7 @@
 # Mastermind Game
 This repository contains a Mastermind game implemented in JavaScript. The game features a user-friendly interface for playing Mastermind, understanding the rules, and exploring an algorithm that solves Mastermind puzzles. The project includes several pages to provide a comprehensive user experience.
 
-The game is deployed on my github pages: [https://jovan11111.github.io/MastermindGame/](https://jovan11111.github.io/MastermindGame/)
+The game is deployed: https://beamish-horse-5d7d76.netlify.app/
 
 ## Features
 Play Mastermind: Users can play the classic Mastermind game with an intuitive interface.
